@@ -2,6 +2,7 @@ package com.itmo.data;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 public class Order {
 
@@ -16,7 +17,7 @@ public class Order {
  */
 
     private int cashboxNumber;
-    private List<MenuItem> items;
+    private List<Map.Entry<MenuItem, Integer>> items;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private String orderNumber;
@@ -24,11 +25,11 @@ public class Order {
     private Staff staff;
 
 
-    public List<MenuItem> getItems() {
+    public List<Map.Entry<MenuItem, Integer>> getItems() {
         return items;
     }
 
-    public void setItems(List<MenuItem> items) {
+    public void setItems(List<Map.Entry<MenuItem, Integer>> items) {
         this.items = items;
     }
 

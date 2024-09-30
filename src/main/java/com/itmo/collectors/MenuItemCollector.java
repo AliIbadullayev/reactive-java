@@ -15,7 +15,11 @@ import java.util.function.Supplier;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-public class MenuItemCollector implements Collector<MenuItem, Map<String, Integer>, Map.Entry<String, Integer>> {
+public class MenuItemCollector implements Collector<
+    Map.Entry<MenuItem, Integer>,
+    Map<String, Integer>,
+    Map.Entry<String, Integer>
+    > {
 
     @Override
     public Supplier<Map<String, Integer>> supplier() {
@@ -23,8 +27,8 @@ public class MenuItemCollector implements Collector<MenuItem, Map<String, Intege
     }
 
     @Override
-    public BiConsumer<Map<String, Integer>, MenuItem> accumulator() {
-        return (map, item) -> map.merge(item.getName(), item.getQuantity(), Integer::sum);
+    public BiConsumer<Map<String, Integer>, Map.Entry<MenuItem, Integer>> accumulator() {
+        return (map, item) -> map.merge(item.getKey().getName(), item.getValue(), Integer::sum);
     }
 
     @Override

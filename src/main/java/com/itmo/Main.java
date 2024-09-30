@@ -38,8 +38,8 @@ public class Main {
 
         HashMap<String, Integer> analyticsMap = new HashMap<>();
         for (Order order : orders) {
-            for (MenuItem item : order.getItems()) {
-                analyticsMap.merge(item.getName(), item.getQuantity(), Integer::sum);
+            for (Map.Entry<MenuItem, Integer> orderItem : order.getItems()) {
+                analyticsMap.merge(orderItem.getKey().getName(), orderItem.getValue(), Integer::sum);
             }
         }
 
@@ -64,8 +64,8 @@ public class Main {
         Map<String, Integer> itemCountMap = orders.stream()
             .flatMap(order -> order.getItems().stream())
             .collect(Collectors.toMap(
-                MenuItem::getName,
-                MenuItem::getQuantity,
+                e -> e.getKey().getName(),
+                Map.Entry::getValue,
                 Integer::sum
             ));
 
