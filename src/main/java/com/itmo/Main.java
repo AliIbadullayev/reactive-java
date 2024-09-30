@@ -16,7 +16,7 @@ public class Main {
         DataGenerator dataGenerator = new DataGenerator();
         Order randomOrder = dataGenerator.generateOrder();
 
-        // Вывод сгенерированного заказа
+        //  Вывод сгенерированного заказа
         System.out.println("Номер кассы обслуживания: " + randomOrder.getCashboxNumber());
         System.out.println("Дата начала: " + randomOrder.getStartDate());
         System.out.println("Дата окончания: " + randomOrder.getEndDate());
