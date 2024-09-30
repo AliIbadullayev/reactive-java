@@ -27,7 +27,7 @@ public class DataGenerator {
     // Method to generate a list of MenuItem objects
     public List<MenuItem> generateMenuItems() {
         return mock.reflect(MenuItem.class)
-                .field("name", mock.strings().size(5))
+                .field("name", mock.from(List.of("Борщ", "Суп", "Салат", "Пельмени", "Котлета", "Сырники", "Пирожок", "Картошка", "Колбаса")))
                 .field("price", mock.doubles().range(200.0, 500.0))
                 .field("quantity", mock.ints().range(1, 10))
                 .field("calories", mock.doubles().range(100.0, 500.0))
