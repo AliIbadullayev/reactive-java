@@ -9,7 +9,6 @@ public class MenuItem {
 */
     private String name;
     private double price;
-    private int quantity;
     private double calories;
 
     // Геттеры и сеттеры
@@ -18,9 +17,6 @@ public class MenuItem {
 
     public double getPrice() { return price; }
     public void setPrice(double price) { this.price = price; }
-
-    public int getQuantity() { return quantity; }
-    public void setQuantity(int quantity) { this.quantity = quantity; }
 
     public double getCalories() { return calories; }
     public void setCalories(double calories) { this.calories = calories; }
